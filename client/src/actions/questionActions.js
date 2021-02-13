@@ -21,10 +21,10 @@ export const createQuestion = questionData => dispatch => {
         body: JSON.stringify(questionData)
     })
     .then(res => res.json())
-    .then(post => 
+    .then(question => 
         dispatch({
             type: NEW_QUESTION,
-            payload: question 
+            payload: question
         })
     ).catch(error => console.log(error)) 
 };
