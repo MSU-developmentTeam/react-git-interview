@@ -1,2 +1,4 @@
 export const FETCH_QUESTIONS = 'FETCH_QUESTIONS';
 export const NEW_QUESTION = 'NEW_QUESTION';
+export const FETCH_LOGIN = 'FETCH_LOGIN';
+export const NEW_SIGNUP = 'NEW_SIGNUP';
