@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Logo from "../images/linkedin_profile_image.png";
-import "../styles/styles.css";
+import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 //exporting header function
 export const Header = (props) => {
@@ -20,7 +20,7 @@ export const Header = (props) => {
              </Container>
             <Container>
                <Form>
-               <BiSearchAlt />
+               <BiSearchAlt id="search-icon"/>
                 <input type="search" name="topic"
                     placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" />
                 <input type="submit" value="Search" />
