@@ -54,6 +54,10 @@ img {
     color: #0E2F56;
 }
 
+#search-icon {
+    font-size: 24px;
+}
+
 #space {
     margin-bottom: 1rem;
     background-color: #0E2F56;
