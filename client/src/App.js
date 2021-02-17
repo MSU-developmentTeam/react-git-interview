@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
+import './styles/styles.css'
 //import QuestionForm from './components/QuestionForm';
 
 import store from './store';
