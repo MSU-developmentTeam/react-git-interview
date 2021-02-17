@@ -10,12 +10,10 @@ import "../styles/styles.css";
 
 export const Header = (props) => {
     return (
-        <Jumbotron className="jumbotron">
+        <Jumbotron id="jumbotron">
                <Form>
-                   <Button type="submit" onClick={() =>
-                       dispatch("signup" )
-                   } >Signup</Button>
-                   <Button>Login</Button>
+                   <Button id="signup-btn" href="/signup" type="submit">Signup</Button>
+                   <Button id="login-btn" href="/login" type="submit">Login</Button>
                </Form>
             <Container>
                 <img src={Logo} alt="Header Image" />
