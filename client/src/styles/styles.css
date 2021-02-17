@@ -5,7 +5,7 @@ body {
     background-color: #A4B3BF;
 }
 
-.jumbotron {
+#jumbotron {
     background-color: #0E2F56;
     color: #CCD3D9;
     font-family: 'Audiowide', cursive;
@@ -52,6 +52,10 @@ img {
     font-family: 'Roboto', sans-serif;
     background-color: #CCD3D9;
     color: #0E2F56;
+}
+
+#search-icon {
+    font-size: 24px;
 }
 
 #space {
