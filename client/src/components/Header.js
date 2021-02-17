@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Logo from "../images/linkedin_profile_image.png";
 import "../styles/styles.css";
 import { BiSearchAlt } from 'react-icons/bi';
-
+//exporting header function
 export const Header = (props) => {
     return (
         <Jumbotron id="jumbotron">
@@ -20,7 +20,7 @@ export const Header = (props) => {
              </Container>
             <Container>
                <Form>
-               <BiSearchAlt id="search-icon"/>
+               <BiSearchAlt />
                 <input type="search" name="topic"
                     placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" />
                 <input type="submit" value="Search" />
