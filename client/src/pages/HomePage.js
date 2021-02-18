@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import QuestionCard from "../components/QuestionCard";
-// import Footer from "../components/Footer";
+ import Footer from "../components/Footer";
 import { connect } from 'react-redux'
 
 export const HomePage = (props) => {
@@ -9,7 +9,7 @@ export const HomePage = (props) => {
         <div>
             <Header />
             <QuestionCard />
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
