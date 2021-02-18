@@ -20,12 +20,19 @@ export const SignupForm = (props) => {
     )
 }
 
-const mapStateToProps = (state) => ({
+SignupForm.propTypes = {
+    fetchUser: PropTypes.func.isRequired,
+    username: PropTypes.text.isRequired,
+    email: PropTypes.text.isRequired,
+    password: PropTypes.text.isRequired
+}
 
+const mapStateToProps = (state) => ({
+    user: state.user.item
 })
 
 // const mapDispatchToProps = {
 
 // }
 
-export default connect(mapStateToProps /*mapDispatchToProps*/)(SignupForm)
+export default connect(mapStateToProps, { } /*mapDispatchToProps*/)(SignupForm)
