@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Form from "react-bootstrap/form";
 import { FiLogIn } from 'react-icons/fi';
+import { fetchUser } from '../actions/loginActions';
+import PropTypes from 'prop-types';
 import "../styles/styles.css";
+
 //exporting Loginform
 export const LoginForm = (props) => {
     return (
@@ -26,12 +29,14 @@ export const LoginForm = (props) => {
 
 LoginForm.propTypes = {
     fetchUser: PropTypes.func.isRequired,
-    username: PropTypes.text.isRequired,
-    password: PropTypes.text.isRequired
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired
 }
 
+
 const mapStateToProps = (state) => ({
-    users: state.users.items
+    username: state.username.items,
+    password: state.password.items
 })
 
 // const mapDispatchToProps = {

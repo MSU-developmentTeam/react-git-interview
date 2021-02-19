@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Form from "react-bootstrap/form";
 import { BsPersonPlus } from 'react-icons/bs';
@@ -22,9 +23,9 @@ export const SignupForm = (props) => {
 
 SignupForm.propTypes = {
     fetchUser: PropTypes.func.isRequired,
-    username: PropTypes.text.isRequired,
-    email: PropTypes.text.isRequired,
-    password: PropTypes.text.isRequired
+    username: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired
 }
 
 const mapStateToProps = (state) => ({
