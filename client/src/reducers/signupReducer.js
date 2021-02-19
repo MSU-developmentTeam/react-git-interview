@@ -4,8 +4,15 @@ const initialState =-{
     item: {}
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function(state = initialState, action) {
-    return {...state,
-    item: action.payload
+    switch (action.type) {
+        case NEW_USER:
+            return {
+                ...state,
+                item: action.payload
+            }
+        default:
+            return state;
     }
 }
