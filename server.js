@@ -9,7 +9,7 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
-import path from "path";
+const path = "path";
 
 // dotenv.config({path: './config/config.env'})
 const db = config.get("mongoURI");
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
-const db = require("./models");
+//const db = require("./models");
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
@@ -56,6 +56,9 @@ app.use(passport.session());
 
 require("./routes/questions-api-routes")(app);
 require("./routes/Authentication/auth-routes")(app);
+
+//app.use('api/users', require('./routes/Authentication/user-routes'))
+//app.use('api/auth', require('./routes/Authentication/auth-routes'))
 
 // Syncing our database and logging a message to the user upon success
 app.listen(PORT, () => {
