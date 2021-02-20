@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
-const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
-const methodOverride = require("method-override");
+const config = require('config');
+// const bodyParser = require("body-parser");
+// const dotenv = require("dotenv");
+// const connectDB = require("./config/db");
+// const methodOverride = require("method-override");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -54,15 +55,16 @@ app.use(passport.session());
 // require("./routes/passport-api-routes.js")(app);
 // require("./routes/html-routes.js")(app);
 
-require("./routes/questions-api-routes")(app);
-require("./routes/Authentication/auth-routes")(app);
+// require("./routes/questions-api-routes")(app);
+// require("./routes/Authentication/auth-routes")(app);
 
-//app.use('api/users', require('./routes/Authentication/user-routes'))
-//app.use('api/auth', require('./routes/Authentication/auth-routes'))
+app.use('/api/users', require('./routes/Authentication/user-routes'))
+app.use('/api/questions', require('./routes/questions-api-routes')) 
+app.use('/api/auth', require('./routes/Authentication/auth-routes'))
 
 // Syncing our database and logging a message to the user upon success
 app.listen(PORT, () => {
   console.log(
-    `Server running in ${process.env.NODE_ENV} node on port ${PORT} `
+    `Server running on port ${PORT} `
   );
 });
