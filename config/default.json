@@ -1,0 +1,4 @@
+{
+ "mongoURI" : "place your mongo URI here",
+ "jwtSecret" : "SbEsPrAtMeMa"
+}
