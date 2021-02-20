@@ -15,6 +15,8 @@ const path = "path";
 // dotenv.config({path: './config/config.env'})
 const db = config.get("mongoURI");
 
+mongoose.connect(process.env.MONGODB_URI || db );
+
 // logging
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
