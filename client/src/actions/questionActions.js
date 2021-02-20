@@ -1,32 +1,44 @@
-import {  FETCH_QUESTIONS, NEW_QUESTION } from './types';
+import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING } from './types';
+import { tokenConfig } from './userActions';
+import { returnErrors } from './errorActions';
+import axios from 'axios';
 
-export const fetchQuestions = () => dispatch => {
-    fetch('/profile')
-    .then(res => res.json())
-    .then(questions =>
-        dispatch({
-            type: FETCH_QUESTIONS,
-            payload: questions
-        })
-    
-    ).catch(error => console.log(error))
+export const getQuestons = () => dispatch => {
+    dispatch(setItemsLoading());
+    axios
+        .get('/api/questions')
+        .then(res =>
+            dispatch({
+                type: GET_QUESTIONS,
+                payload: res.data
+            })
+        ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 };
 
-export const createQuestion = questionData => dispatch => {
-    fetch('/api/questions', {
-        method: 'POST',
-        headers: {
-            'content-type' : 'application/json'
-        },
-        body: JSON.stringify(questionData)
-    })
-    .then(res => res.json())
-    .then(question => 
+export const addQuestion = item => (dispatch, getState) => {
+    axios.post('/api/questions', item, tokenConfig(getState))
+        .then(res =>
+            dispatch({
+                type: ADD_QUESTION,
+                payload: res.data
+            })
+        ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
+};
+
+export const deleteQuestion = id => (dispatch, getState) => {
+    axios.delete(`/api/items/${id}`, tokenConfig(getState)).then(res =>
         dispatch({
-            type: NEW_QUESTION,
-            payload: question
+            type: DELETE_QUESTION,
+            payload: id
         })
-    ).catch(error => console.log(error)) 
+    ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
+};
+
+
+export const setQuestionsLoading = () => {
+    return {
+        type: QUESTIONS_LOADING
+    }
 };
 
 //TODO
