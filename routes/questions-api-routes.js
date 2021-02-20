@@ -1,33 +1,17 @@
-const db = require('../models');
-const Sequelize = require('sequelize');
-const Op = Sequelize.Op;
+const router = require("express").Router();
+const controller = require("../controllers/questionsController");
 
-module.exports = function (app) {
-  // route to create new Question in the db
-  app.post("/api/questions", function (req, res) {
-    db.Question.create({
-      UserId: req.user.id,
-      topic: req.body.topic,
-      body: req.body.body,
-      answer: req.body.answer
-    }).then(function(){
-      res.redirect("/profile");
-    });
-  });
+router.route("/")
+  .get(controller.findAll)
+  .post(controller.create);
 
-  // Search route
-  app.get('/questions/search', function(req, res) {
-    let { topic } = req.query;
-    
-    // finds all questions where topic matches the searched topic
-    db.Question.findAll({ 
-    where: { topic: { [Op.like]: topic } },
-    include: [db.User]
-    }).then(function(topic) {
-      console.log(topic)
-      res.render('searchResults', { Question: topic })
-    }).catch(function(err) {
-      console.log(err);
-    });
-  });
-};
+router.route("/topic")
+  .get(controller.findByTopic);
+
+router
+  .route("/:id")
+  .get(controller.findById)
+  .put(controller.update)
+  .delete(controller.remove);
+
+module.exports = router;
