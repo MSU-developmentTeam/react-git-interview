@@ -1,9 +1,8 @@
-const db = require("../models");
-const mongoose = require("mongoose");
+const db = require("../models/");
 
 module.exports = {
   findAll: function (req, res) {
-    db.Question.findAll(req.query).then((dbModel) => res.json(dbModel));
+    db.Question.findAll(req.query).then((dbModel) => res.json(dbModel)).catch(err => res.status(422).json(err));;
   },
 
   findByTopic: function (req, res) {
