@@ -1,33 +1,28 @@
-module.exports = function(sequelize, DataTypes) {
-  const Question = sequelize.define("Question", {
-    topic: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    body: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1]
-    },
-    answer: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-      len: [0]
-    }
-  });
+const mongoose = require('monogoose');
+const Schema = mongoose.Schema;
 
-  // Associating the Questions table with the Users table
-  Question.associate = function(models) {
-    
-    Question.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+const questionsSchema = new Schema({
+  topic: {
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
+  answer: {
+    type: String,
+    required: true
+  },
+  keyWords: {
+    type: Array,
+    required: false
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+}
 
-  return Question;
-};
+})
+
+module.export = mongoose.model('Question', questionsSchema);
