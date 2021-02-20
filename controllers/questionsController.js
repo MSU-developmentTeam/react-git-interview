@@ -2,7 +2,7 @@ const db = require("../models/");
 
 module.exports = {
   findAll: function (req, res) {
-    db.Question.findAll(req.query).then((dbModel) => res.json(dbModel)).catch(err => res.status(422).json(err));;
+    db.Question.find({}).then((dbModel) => res.json(dbModel)).catch(err => res.status(400).json(err));
   },
 
   findByTopic: function (req, res) {
