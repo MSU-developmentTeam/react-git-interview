@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { fetchQuestions } from '../actions/questionActions';
+import { getQuestions } from '../actions/questionActions';
 
 export class QuestionCard extends Component {
     componentWillMount() {
-        this.props.fetchQuestions();
+        this.props.getQuestions();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -28,7 +28,7 @@ export class QuestionCard extends Component {
             </div>
         );
     }
-}
+};
 
 QuestionCard.propTypes = {
     fetchQuestions: PropTypes.func.isRequired,
