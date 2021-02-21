@@ -3,10 +3,10 @@ import { tokenConfig } from './userActions';
 import { returnErrors } from './errorActions';
 import axios from 'axios';
 
-export const getQuestons = () => dispatch => {
-    dispatch(setItemsLoading());
-    axios
-        .get('/api/questions')
+export const getQuestions = () => dispatch => {
+
+    dispatch(setQuestionsLoading());
+    axios.get('/')
         .then(res =>
             dispatch({
                 type: GET_QUESTIONS,
@@ -15,18 +15,19 @@ export const getQuestons = () => dispatch => {
         ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 };
 
-export const addQuestion = item => (dispatch, getState) => {
-    axios.post('/api/questions', item, tokenConfig(getState))
+export const addQuestion = item =>
+     (dispatch, getState) => {
+    axios.post('api/questions', item, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: ADD_QUESTION,
-                payload: res.data
+                payload: JSON.parse(res.data)
             })
         ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 };
 
 export const deleteQuestion = id => (dispatch, getState) => {
-    axios.delete(`/api/items/${id}`, tokenConfig(getState)).then(res =>
+    axios.delete(`api/items/${id}`, tokenConfig(getState)).then(res =>
         dispatch({
             type: DELETE_QUESTION,
             payload: id
