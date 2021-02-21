@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, NavLink, Alert } from 'react-bootstrap';
+import { Button, Modal, Form, FormGroup, Alert } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../actions/authActions';
+import { FiLogIn } from 'react-icons/fi';
+import { login } from '../../actions/userActions';
 import { clearErrors } from '../../actions/errorActions';
 import "../../styles/styles.css";
 
 class LoginModal extends Component {
     state = {
         modal: false,
-        email: '',
+        username: '',
         password: '',
         message: null,
     }
@@ -26,7 +27,7 @@ class LoginModal extends Component {
         if (error !== prevProps.error) {
             // Check for register error
             if (error.id === 'LOGIN_FAIL') {
-                this.setState({ msg: err.msg.msg });
+                this.setState({ msg: error.msg.msg });
             } else {
                 this.setState({ msg: null })
             }
@@ -49,15 +50,15 @@ class LoginModal extends Component {
     }
 
     onChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.username]: e.target.value });
     }
 
     onSubmit = e => {
         e.preventDefault();
-        const { email, password } = this.state;
+        const{ username, password } = this.state;
 
         const user = {
-            email,
+            username,
             password
         };
 
@@ -69,24 +70,24 @@ class LoginModal extends Component {
             <div>
                 <Button id='login-btn' onClick={this.toggle} href="#">Login</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle}>Login</ModalHeader>
-                    <ModalBody id='formContent'>
+                    <Modal.Header toggle={this.toggle}>Login</Modal.Header>
+                    <Modal.Body id='formContent'>
                         {this.state.msg ? <Alert color='danger'>{this.state.msg}</Alert> : null}
                         <FiLogIn id="login-icon" />
                         <Form onsubmit={this.onSubmit}>
                             <FormGroup>
-                                <Label for='username'>username</Label>
+                                <label for='username'>username</label>
                                 <input type="text" id="username" name="username" placeholder="username" />
-                                <Label for='password'>Password</Label>
+                                <label for='password'>Password</label>
                                 <input type="password" id="password" name="password" placeholder="password" />
-                                <button type="submit" value="Login">Login</button>
+                                <Button type="submit" value="Login">Login</Button>
 
                                 <div id="formFooter">
                                     <a className="underlineHover" href="/signup">Create Account</a>
                                 </div>
                             </FormGroup>
                         </Form>
-                    </ModalBody>
+                    </Modal.Body>
 
                 </Modal>
             </div>
@@ -95,7 +96,7 @@ class LoginModal extends Component {
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
+    isAuthenticated: state.user.isAuthenticated,
     error: state.error
 })
 

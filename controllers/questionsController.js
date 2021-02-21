@@ -17,11 +17,11 @@ module.exports = {
 
   create: function (req, res) {
     db.Question.create({
-      UserId: req.user.id,
+      // UserId: req.user.id,
       topic: req.body.topic,
       body: req.body.body,
       answer: req.body.answer,
-    }).then((dbModel) => res.json(dbModel));
+    }).then((dbModel) => res.json(dbModel)).catch(err => res.status(400).json(err));
   },
 
   remove: function (req, res) {

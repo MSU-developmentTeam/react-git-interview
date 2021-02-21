@@ -9,18 +9,18 @@ export default function (state = initialState, action) {
         case GET_QUESTIONS:
             return {
                 ...state,
-                items: action.payload,
+                questions: action.payload,
                 loading: false
             }
         case DELETE_QUESTION:
             return {
                 ...state,
-                items: state.items.filter(question => question._id != action.payload)
+                questions: state.questions.filter(question => question._id != action.payload)
             }
         case ADD_QUESTION:
             return {
                 ...state,
-                items: [action.payload, ...state.questions]
+                questions: [action.payload, ...state.questions]
             }
         case QUESTIONS_LOADING:
             return {
