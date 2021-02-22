@@ -10,7 +10,7 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
-const path = "path";
+const path = require("path");
 
 // dotenv.config({path: './config/config.env'})
 const db = config.get("mongoURI");
