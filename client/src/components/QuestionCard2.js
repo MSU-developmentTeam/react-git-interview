@@ -7,40 +7,29 @@ import PropTypes from 'prop-types';
 import '../styles/styles.css';
 
 class QuestionTwo extends Component {
-
-    state = {
-        questions: []
-    }
-
     static propTypes = {
         getQuestions: PropTypes.func.isRequired,
         question: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     };
 
+    const 
 
     componentDidMount() {
         this.props.getQuestions();
-    }
-
-    setQuestionsToState = () => {
-        let res = this.props.getQuestions();
-        if (res.data) {
-            this.setState({ questions: res.data });
-        }
     }
 
     onDeleteClick = id => {
         this.props.deleteQuestion(id)
     }
     render() {
-        console.log(this.state.questions);
+        const { questions } = this.props.question;
 
         return (
             <Container>
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
-                        {this.state.questions.map(({ _id, topic, body, answer, keyWords }) => (
+                        {questions.map(({ _id, topic, body, answer, keyWords }) => (
                             <CSSTransition key={_id} timeout={500} className='fade'>
                                 <ListGroupItem>
                                     {this.props.isAuthenticated ? <Button className='remove-btn' color='danger' size='sm' onClick={this.onDeleteClick.bind(this, _id)}>&times;</Button> : null}

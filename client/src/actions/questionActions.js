@@ -13,7 +13,7 @@ export const getQuestions = () => dispatch => {
                 type: GET_QUESTIONS,
                 payload: res.data
             })
-        }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
+        }).catch(err => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
 export const addQuestion = question =>
