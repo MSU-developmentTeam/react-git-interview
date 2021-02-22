@@ -1,4 +1,4 @@
 {
- "mongoURI" : "place your mongo URI here",
- "jwtSecret" : "SbEsPrAtMeMa"
+ "mongoURI" : "Your Mongo URI here",
+ "jwtSecret" : "Your JWT secret here"
 }
