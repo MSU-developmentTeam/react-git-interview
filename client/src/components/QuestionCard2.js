@@ -32,9 +32,8 @@ class QuestionTwo extends Component {
                         {questions.map(({ _id, topic, body, answer, keyWords }) => (
                             <CSSTransition key={_id} timeout={500} className='fade'>
                                 <ListGroupItem>
-                                    {this.propTypes.isAuthenticated ? <Button className='remove-btn' color='danger' size='sm' onClick={this.onDeleteClick.bind(this, _id)}>&times;</Button> : null}
-                                    {topic, body, answer, keyWords}
-                                </ListGroupItem>
+                                    {this.props.isAuthenticated ? <Button className='remove-btn' color='danger' size='sm' onClick={this.onDeleteClick.bind(this, _id)}>&times;</Button> : null}
+                                    { topic }{ body }{ answer }{ keyWords }                                </ListGroupItem>
                             </CSSTransition>
                         ))}
                     </TransitionGroup>
