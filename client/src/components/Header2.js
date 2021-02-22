@@ -61,7 +61,8 @@ class HeaderTwo extends Component {
                     {isAuthenticated ? authLinks : guestLinks}
                 </Form>
                 <Container>
-                    <img src={Logo} alt="Header Image" />
+                    {/* // eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                    <img src={Logo} alt="" />
                 </Container>
                 <Container>
                     <Form>
