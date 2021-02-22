@@ -6,18 +6,19 @@ import axios from 'axios';
 export const getQuestions = () => dispatch => {
 
     dispatch(setQuestionsLoading());
-    axios.get('/')
-        .then(res =>
+    axios.get('/api/questions')
+        .then(res => {
+            console.log(res)
             dispatch({
                 type: GET_QUESTIONS,
                 payload: res.data
             })
-        ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
+        }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 };
 
-export const addQuestion = item =>
+export const addQuestion = question =>
      (dispatch, getState) => {
-    axios.post('api/questions', item, tokenConfig(getState))
+    axios.post('api/questions', question, tokenConfig(getState))
         .then(res =>
             dispatch({
                 type: ADD_QUESTION,
@@ -27,7 +28,7 @@ export const addQuestion = item =>
 };
 
 export const deleteQuestion = id => (dispatch, getState) => {
-    axios.delete(`api/items/${id}`, tokenConfig(getState)).then(res =>
+    axios.delete(`api/questions/${id}`, tokenConfig(getState)).then(res =>
         dispatch({
             type: DELETE_QUESTION,
             payload: id
