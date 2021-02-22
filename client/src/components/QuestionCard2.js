@@ -7,23 +7,34 @@ import PropTypes from 'prop-types';
 import '../styles/styles.css';
 
 class QuestionTwo extends Component {
+
+    state = {
+        questions: []
+    }
+
     static propTypes = {
         getQuestions: PropTypes.func.isRequired,
         question: PropTypes.object.isRequired,
         isAuthenticated: PropTypes.bool
     };
 
-    const 
 
     componentDidMount() {
         this.props.getQuestions();
+    }
+
+    setQuestionsToState = () => {
+        let res = this.props.getQuestions();
+        if (res.data) {
+            this.setState({ questions: res.data });
+        }
     }
 
     onDeleteClick = id => {
         this.props.deleteQuestion(id)
     }
     render() {
-        const { questions } = this.props.question;
+        console.log(state.questions);
 
         return (
             <Container>
