@@ -13,10 +13,6 @@ class QuestionTwo extends Component {
         isAuthenticated: PropTypes.bool
     };
 
-    state = {
-        questions: []
-    }
-
     componentDidMount() {
         this.props.getQuestions();
     }
@@ -25,21 +21,16 @@ class QuestionTwo extends Component {
         this.props.deleteQuestion(id)
     }
 
-    setStateToQestions = () => {
-        let res = this.props.getQuestions();
-        if (res.data) {
-            setState({questions: res.data})
-        }
-    }
+
 
     render() {
         const { questions } = this.props.question;
-
+        console.log(this.props)
         return (
             <Container>
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
-                        {this.state.questions.map(({ _id, topic, body, answer, keyWords }) => (
+                        {questions.map(({ _id, topic, body, answer, keyWords }) => (
                             <CSSTransition key={_id} timeout={500} className='fade'>
                                 <ListGroupItem>
                                     {this.props.isAuthenticated ? <Button className='remove-btn' color='danger' size='sm' onClick={this.onDeleteClick.bind(this, _id)}>&times;</Button> : null}
