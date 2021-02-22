@@ -11,7 +11,7 @@ export const Footer = (props) => {
             <div class=" col-sm-4 col-md col-sm-4  col-12 col">
                 <h5 class="headin5_amrc col_white_amrc pt2">Contact us</h5>
                 <p class="mb10">enxhi_salaj@yahoo.com</p>
-                <p class="mb10">roggpierce@gmail.com</p>
+                <p class="mb10">ptrogg1992@gmail.com</p>
                 <p class="mb10">sambishop3015@hotmail.com</p>
                 <p class="mb10">tatum_alex@gmail.com</p>
                 <p class="mb10">marlee.eyre@gmail.com</p>
