@@ -34,13 +34,13 @@ class QuestionTwo extends Component {
         this.props.deleteQuestion(id)
     }
     render() {
-        console.log(state.questions);
+        console.log(this.state.questions);
 
         return (
             <Container>
                 <ListGroup>
                     <TransitionGroup className="shopping-list">
-                        {questions.map(({ _id, topic, body, answer, keyWords }) => (
+                        {this.state.questions.map(({ _id, topic, body, answer, keyWords }) => (
                             <CSSTransition key={_id} timeout={500} className='fade'>
                                 <ListGroupItem>
                                     {this.props.isAuthenticated ? <Button className='remove-btn' color='danger' size='sm' onClick={this.onDeleteClick.bind(this, _id)}>&times;</Button> : null}
