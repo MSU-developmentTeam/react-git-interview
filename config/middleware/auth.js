@@ -19,4 +19,6 @@ function auth(req, res, next) {
     }
 }
 
+// added testing comment
+
 module.exports = auth;
