@@ -3,7 +3,7 @@ const router = express.Router();
 //const config = require('config');
 const jwt = require("jsonwebtoken");
 const User = require("../../models/user");
-const auth = require("../../middleware/auth");
+const auth = require("../../config/middleware/auth");
 // @route POST api/auth
 // @desc POST login User
 // @access Public
