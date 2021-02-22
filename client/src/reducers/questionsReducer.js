@@ -1,9 +1,10 @@
-import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING } from '../actions/types';
+import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING, SEARCH_QUESTIONS } from '../actions/types';
 const initialState = {
     questions: [],
     loading: false
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default function (state = initialState, action) {
     switch (action.type) {
         case GET_QUESTIONS:
@@ -15,7 +16,7 @@ export default function (state = initialState, action) {
         case DELETE_QUESTION:
             return {
                 ...state,
-                questions: state.questions.filter(question => question._id != action.payload)
+                questions: state.questions.filter(question => question._id !== action.payload)
             }
         case ADD_QUESTION:
             return {
@@ -26,6 +27,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 loading: true
+            }
+        case SEARCH_QUESTIONS:
+            return {
+                ...state,
+                questions: state.questions.filter(question => question.topic !== action.payload)
             }
         default:
             return state
