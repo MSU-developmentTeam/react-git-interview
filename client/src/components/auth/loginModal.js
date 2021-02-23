@@ -10,7 +10,7 @@ import "../../styles/styles.css";
 class LoginModal extends Component {
     state = {
       modal: false,
-      email: '',
+      username: '',
       password: '',
       msg: null
     };
@@ -49,9 +49,9 @@ class LoginModal extends Component {
     };
     onSubmit = e => {
       e.preventDefault();
-      const { email, password } = this.state;
+      const { username, password } = this.state;
       const user = {
-        email,
+        username,
         password
       };
       // Attempt to login
@@ -71,12 +71,12 @@ class LoginModal extends Component {
               ) : null}
               <Form onSubmit={this.onSubmit}>
                 <FormGroup>
-                  <Label for='email'>Email</Label>
+                  <Label for='username'>Username</Label>
                   <Input
-                    type='email'
-                    name='email'
-                    id='email'
-                    placeholder='Email'
+                    type='username'
+                    name='username'
+                    id='username'
+                    placeholder='Username'
                     className='mb-3'
                     onChange={this.onChange}
                   />

@@ -23,12 +23,6 @@ import RegisterModal from './components/auth/registerModal';
             <Route path="/" exact>
               <HomePage />
             </Route> 
-            <Route path="/api/auth/login">
-                <LoginModal /> 
-            </Route>
-            <Route path="/api/auth/signup">
-                <RegisterModal /> 
-            </Route>
           </Switch>
         </div>
         </Router>
