@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Container, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
-import { TransitionGroup } from 'react-transition-group';
+import { Container } from 'react-bootstrap';
+//import { TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getQuestions, deleteQuestion } from '../actions/questionActions';
 import PropTypes from 'prop-types';
@@ -32,16 +32,15 @@ class QuestionTwo extends Component {
         console.log(this.props)
         return (
             <Container>
-                <ListGroup>
-                    <TransitionGroup className="shopping-list">
-                        {questions.map(({ _id, topic, body, answer, keyWords }) => (
-                            <ListGroupItem>
-                                {this.props.isAuthenticated ? <Button className='remove-btn' color='danger' size='sm' onClick={this.onDeleteClick.bind(this, _id)}>&times;</Button> : null}
-                                { topic}{body}{answer}{keyWords}
-                            </ListGroupItem>
+                <div>
+                    {/* <TransitionGroup className="shopping-list"> */}
+                        {questions.map(({_id, topic, body, answer, keyWords }) => (
+                            <p key={ _id}>
+                               { topic}{body}{answer}{keyWords}
+                            </p>
                         ))}
-                    </TransitionGroup>
-                </ListGroup>
+                    {/* </TransitionGroup> */}
+                </div>
             </Container>
         )
     }

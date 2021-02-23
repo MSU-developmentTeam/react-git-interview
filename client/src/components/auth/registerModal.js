@@ -47,12 +47,14 @@ class RegisterModal extends Component {
         this.props.clearErrors();
 
         this.setState({
-            modal: !this.state.modal
+            modal: true
         })
     }
 
     onChange = e => {
         this.setState({ [e.target.username]: e.target.value });
+        this.setState({ [e.target.password]: e.target.value });
+        this.setState({ [e.target.email]: e.target.value });
     }
 
     onSubmit = e => {
@@ -74,7 +76,7 @@ class RegisterModal extends Component {
     render() {
         return (
             <div>
-                <Button id='signup-btn' onClick={this.toggle} href="#">Register</Button>
+                <Button id='signup-btn' onClick={this.toggle } href="#">Register</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
 
                     <Modal.Header toggle={this.toggle}>Register</Modal.Header>

@@ -68,7 +68,7 @@ class LoginModal extends Component {
     render() {
         return (
             <div>
-                <Button id='login-btn' onClick={this.toggle} href="#">Login</Button>
+                <Button id='login-btn' onClick={this.toggle} href="/api/auth/login">Login</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <Modal.Header toggle={this.toggle}>Login</Modal.Header>
                     <Modal.Body id='formContent'>
