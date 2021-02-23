@@ -10,8 +10,8 @@ import './styles/styles.css'
 //import QuestionForm from './components/QuestionForm';
 
 import store from './store';
-import LoginModal from './components/auth/loginModal';
-import RegisterModal from './components/auth/registerModal';
+//import LoginModal from './components/auth/loginModal';
+//import RegisterModal from './components/auth/registerModal';
 
  class App extends Component {
    render(){
