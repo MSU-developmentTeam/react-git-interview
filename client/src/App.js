@@ -10,6 +10,8 @@ import './styles/styles.css'
 //import QuestionForm from './components/QuestionForm';
 
 import store from './store';
+import LoginModal from './components/auth/loginModal';
+import RegisterModal from './components/auth/registerModal';
 
  class App extends Component {
    render(){
@@ -21,11 +23,11 @@ import store from './store';
             <Route path="/" exact>
               <HomePage />
             </Route> 
-            <Route path="/login">
-                {/* <LoginForm />  */}
+            <Route path="/api/auth/login">
+                <LoginModal /> 
             </Route>
-            <Route path="/signup">
-                {/* <SignupForm />  */}
+            <Route path="/api/auth/signup">
+                <RegisterModal /> 
             </Route>
           </Switch>
         </div>
