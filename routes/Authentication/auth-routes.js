@@ -7,7 +7,7 @@ const auth = require("../../config/middleware/auth");
 // @route POST api/auth
 // @desc POST login User
 // @access Public
-router.post("/api/auth", (req, res) => {
+router.post("/login", (req, res) => {
 	const { email, password } = req.body;
 	// Simple Validation
 	if (!email || !password) {
