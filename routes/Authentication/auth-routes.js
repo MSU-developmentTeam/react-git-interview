@@ -4,17 +4,19 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const User = require("../../models/user");
 const auth = require("../../config/middleware/auth");
+const bcrypt = require('bcryptjs');
+const config = require('config');
 // @route POST api/auth
 // @desc POST login User
 // @access Public
-router.post("/login", (req, res) => {
-	const { email, password } = req.body;
+router.post("/", (req, res) => {
+	const { username, password } = req.body;
 	// Simple Validation
-	if (!email || !password) {
+	if (!username || !password) {
 		return res.status(400).json({ msg: "Please enter all fields" });
 	}
 	// Check for existing user
-	User.findOne({ email }).then((user) => {
+	User.findOne({ username }).then((user) => {
 		if (!user) return res.status(400).json({ msg: "User does not exist" });
 		// Validate Password
 		bcrypt.compare(password, user.password).then((isMatch) => {
