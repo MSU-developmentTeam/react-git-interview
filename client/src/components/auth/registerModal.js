@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {  Button,  Modal,  ModalHeader,  ModalBody,  Form,  FormGroup,  Label,  Input,  NavLink,  Alert} from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { BsPersonPlus } from 'react-icons/bs';
+// import { BsPersonPlus } from 'react-icons/bs';
 import { register } from '../../actions/userActions';
 import { clearErrors } from '../../actions/errorActions'
 import "../../styles/styles.css";
@@ -46,7 +46,7 @@ class RegisterModal extends Component {
       });
     };
     onChange = e => {
-      this.setState({ [e.target.username]: e.target.value });
+      this.setState({ [e.target.name]: e.target.value });
     };
     onSubmit = e => {
       e.preventDefault();
@@ -72,12 +72,12 @@ class RegisterModal extends Component {
               {this.state.msg ? (
                 <Alert color='danger'>{this.state.msg}</Alert>
               ) : null}
-              <Form onSubmit={this.onSubmit}>
+              <Form /*onSubmit={this.onSubmit}*/>
                 <FormGroup>
-                  <Label for='name'>Userame</Label>
+                  <Label for='username'>Userame</Label>
                   <Input
                     type='text'
-                    name='name'
+                    name='username'
                     id='name'
                     placeholder='Name'
                     className='mb-3'
@@ -101,7 +101,7 @@ class RegisterModal extends Component {
                     className='mb-3'
                     onChange={this.onChange}
                   />
-                  <Button color='dark' style={{ marginTop: '2rem' }} block>
+                  <Button color='dark' style={{ marginTop: '2rem' }} onClick={this.onSubmit} block>
                     Register
                   </Button>
                 </FormGroup>

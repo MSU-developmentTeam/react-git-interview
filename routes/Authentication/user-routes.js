@@ -3,6 +3,7 @@ const router = express.Router();
 const config = require("config");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/user");
+const bcrypt = require('bcryptjs')
 // @route POST api/users
 // @desc Register an user
 // @access Public
@@ -22,8 +23,7 @@ router.post("/", (req, res) => {
     });
     // Create Salt and Hash
     bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hast(newUser.password, salt, (err, hash) => {
-        if (err) throw err;
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
         newUser.password = hash;
         newUser.save().then((user) => {
           // Signing the token
