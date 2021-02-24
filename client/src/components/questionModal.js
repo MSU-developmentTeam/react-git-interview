@@ -41,7 +41,7 @@ class QuestionModal extends Component {
     };
 
 
-    // Add item via addItem action
+    // Add Question via addQuestion action
     this.props.addQuestion(newQuestion);
 
     // Close modal
@@ -50,19 +50,12 @@ class QuestionModal extends Component {
 
   render() {
     return (
-        
       <div>
         {this.state.isAuthenticated ? (
-          <Button
-            color="dark"
-            style={{ marginBottom: "2rem" }}
-            onClick={this.toggle}
-          >
-            Post Question
-          </Button>
+          <Button id="post-btn" onClick={this.toggle} >Post Question</Button>
         ) : (
-          <h4 className="mb-3 ml-4">Please login to Manage Questions</h4>
-        )}
+            <h4 className="mb-3 ml-4">Please login to Manage Questions</h4>
+          )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Ask Your Question</ModalHeader>
           <ModalBody>
@@ -117,6 +110,6 @@ class QuestionModal extends Component {
 }
 const mapStateToProps = (state) => ({
   question: state.question,
-isAuthenticated: state.isAuthenticated,
+  isAuthenticated: state.isAuthenticated,
 });
 export default connect(mapStateToProps, { addQuestion })(QuestionModal);

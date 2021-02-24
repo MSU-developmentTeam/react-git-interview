@@ -10,6 +10,7 @@ import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../images/linkedin_profile_image.png';
 import { Typeahead } from 'react-bootstrap-typeahead';
+import options from '../data';
 
 
 class HeaderTwo extends Component {
@@ -37,22 +38,25 @@ class HeaderTwo extends Component {
                         <strong>{user ? `Welcome ${user.username}` : ''}</strong>
                     </span>
                 </NavItem>
-                <Button>
-                    <QuestionModal />
-                </Button>
-                <Button>
-                    <Logout />
-                </Button>
+
+                    <Button id="post-btn">
+                        <QuestionModal />
+                    </Button>
+
+                    <Button id="logout-btn">
+                        <Logout />
+                    </Button>
+
             </Fragment>
         );
 
         const guestLinks = (
             <Fragment>
-                <Button>
+                <Button id="signup-btn">
                     <RegisterModal />
                 </Button>
-                
-                <Button>
+
+                <Button id="login-btn">
                     <LoginModal />
                 </Button>
 
@@ -71,9 +75,16 @@ class HeaderTwo extends Component {
                 </Container>
                 <Container>
                     <Form>
+                        <Typeahead
+                            id='input'
+                            name='topic'
+                            labelKey='topic'
+                            options={options}
+                            placeholder='Choose question topic...' />
+                        {/* <input type="search" name="topic"
+                                placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" /> */}
                         <BiSearchAlt id="search-icon" />
-                        <input type="search" name="topic"
-                            placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" />
+
                         <input type="submit" value="Search" />
                     </Form>
                 </Container>
