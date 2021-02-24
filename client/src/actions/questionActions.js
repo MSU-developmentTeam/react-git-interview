@@ -8,7 +8,6 @@ export const getQuestions = () => dispatch => {
     dispatch(setQuestionsLoading());
     axios.get('/api/questions')
         .then(res => {
-            console.log(res)
             dispatch({
                 type: GET_QUESTIONS,
                 payload: res.data
@@ -18,17 +17,17 @@ export const getQuestions = () => dispatch => {
 
 export const addQuestion = question =>
     (dispatch, getState) => {
-        axios.post('api/questions', question, tokenConfig(getState))
+        axios.post('/api/questions', question, tokenConfig(getState))
             .then(res =>
                 dispatch({
                     type: ADD_QUESTION,
-                    payload: JSON.parse(res.data)
+                    payload: res.data,
                 })
             ).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
     };
 
 export const deleteQuestion = id => (dispatch, getState) => {
-    axios.delete(`api/questions/${id}`, tokenConfig(getState)).then(res =>
+    axios.delete(`/api/questions/${id}`, tokenConfig(getState)).then(res =>
         dispatch({
             type: DELETE_QUESTION,
             payload: id
@@ -44,8 +43,7 @@ export const setQuestionsLoading = () => {
 };
 
 export const searchingQuestion = topic => (dispatch, getState) => {
-    axios.get(`api/questions/${topic}`, tokenConfig(getState)).then(res => {
-        console.log(res);
+    axios.get(`/api/questions/${topic}`, tokenConfig(getState)).then(res => {
         return {
             type: SEARCH_QUESTIONS,
             payload: topic
