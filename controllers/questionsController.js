@@ -21,6 +21,7 @@ module.exports = {
       topic: req.body.topic,
       body: req.body.body,
       answer: req.body.answer,
+      keyWords: req.body.keyWords
     }).then((dbModel) => res.json(dbModel)).catch(err => res.status(400).json(err));
   },
 
