@@ -51,10 +51,10 @@ img {
   display: inline-block;
 }
 
-.card {
+#card {
   margin: 1rem;
   font-family: "Roboto", sans-serif;
-  background-color: #ccd3d9;
+  
   color: #0e2f56;
 }
 
@@ -64,11 +64,13 @@ img {
   height: 5px;
 }
 
-.card-body {
+#card-body {
+  background-color: #ccd3d9;
   color: #0e2f56;
 }
 
-.card-title {
+#card-title {
+  background-color: #ccd3d9;
   color: #0e2f56;
 }
 
@@ -227,7 +229,7 @@ a {
 }
 
 /* Profile page style */
-.logout-btn {
+#logout-btn {
   float: right;
   background-color: #a4b3bf;
   color: #0f3759;
@@ -235,7 +237,7 @@ a {
   margin: 1px;
 }
 
-.post-btn {
+#post-btn {
   float: right;
   background-color: #a4b3bf;
   color: #0f3759;
