@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import RegisterModal from './auth/registerModal';
 import LoginModal from './auth/loginModal';
 import Logout from './auth/logout';
+import QuestionModal from './questionModal';
 import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../images/linkedin_profile_image.png'
@@ -34,7 +35,9 @@ class HeaderTwo extends Component {
                         <strong>{user ? `Welcome ${user.username}` : ''}</strong>
                     </span>
                 </NavItem>
-
+                <Button>
+                    <QuestionModal />
+                </Button>
                 <Button>
                     <Logout />
                 </Button>
@@ -46,7 +49,7 @@ class HeaderTwo extends Component {
                 <Button>
                     <RegisterModal />
                 </Button>
-
+                
                 <Button>
                     <LoginModal />
                 </Button>
