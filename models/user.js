@@ -14,6 +14,13 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     }
+    // ,
+    // questions: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "Question"
+    //     }
+    // ]
 });
 
 userSchema.methods.generateHash = function (password) {
