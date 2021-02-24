@@ -8,7 +8,9 @@ import Logout from './auth/logout';
 import QuestionModal from './questionModal';
 import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
-import Logo from '../images/linkedin_profile_image.png'
+import Logo from '../images/linkedin_profile_image.png';
+import { Typeahead } from 'react-bootstrap-typeahead';
+
 
 class HeaderTwo extends Component {
     state = {
