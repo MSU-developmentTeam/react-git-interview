@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { addQuestion } from "../actions/questionActions";
 // import  isAuthenticated  from '../reducers/userReducer';
 import PropTypes from "prop-types";
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
 class QuestionModal extends Component {
   state = {
     modal: false,
@@ -57,11 +58,12 @@ class QuestionModal extends Component {
             <h4 className="mb-3 ml-4">Please login to Manage Questions</h4>
           )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Ask Your Question</ModalHeader>
+
+          <ModalHeader toggle={this.toggle}> < BsFillQuestionCircleFill />  Ask Your Question </ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="question">Question</Label>
+                <Label for="question"></Label>
                 <Input
                   type="text"
                   name="username"
@@ -91,9 +93,10 @@ class QuestionModal extends Component {
                   onChange={this.onChange}
                 />
                 <Input
+                  list="keyWords"
                   type="text"
-                  name="keyWord"
-                  id="keyWord"
+                  name="keyWords"
+                  id="keyWords"
                   placeholder="Keywords (optional)"
                   onChange={this.onChange}
                 />

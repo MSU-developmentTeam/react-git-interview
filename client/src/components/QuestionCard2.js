@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { getQuestions, deleteQuestion } from '../actions/questionActions';
 import PropTypes from 'prop-types';
+import { RiQuestionAnswerFill } from 'react-icons/ri';
 import '../styles/styles.css';
 
 class QuestionTwo extends Component {
@@ -33,15 +34,15 @@ class QuestionTwo extends Component {
                 <div>
                     {questions.map(({ _id, topic, body, answer, keyWords }) => (
                         <Card id="card" key={_id}>
-                            {/* <Card.Header> Question </Card.Header> */}
-                                <Card.Header id="card-title">
-                                    {topic}
-                                </Card.Header>
+                            <Card.Header id="card-title">
+                                {topic}
+                            </Card.Header>
                             <Card.Body id="card-body">
                                 <Card.Text>
                                     {body}
                                 </Card.Text>
-                                <Card.Text>{answer}</Card.Text>
+                                <Card.Text>
+                                    <RiQuestionAnswerFill /> {answer}</Card.Text>
                                 <Card.Footer>{keyWords}</Card.Footer>
                             </Card.Body>
                         </Card>

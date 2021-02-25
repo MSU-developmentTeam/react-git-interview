@@ -76,6 +76,7 @@ class HeaderTwo extends Component {
                 <Container>
                     <Form>
                         <Typeahead
+                            type='search'
                             id='input'
                             name="topic"
                             labelKey='topic'
