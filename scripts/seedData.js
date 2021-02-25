@@ -20,6 +20,27 @@ const questionSeed = [
         answer: "The parseInt() function is used to convert numbers between different bases parseInt() takes the string to be converted as its first parameter, and the second parameter is the base of the given string.",
         keyWords: [" JavaScript ", " parseInt() ", " parse "],
         date: new Date(Date.now())
+    },
+    {
+        topic: "RESTful Services",
+        body: "What is the protocol which is used by RESTful web services?",
+        answer: "RESTful web services use a famous web protocol i.e. HTTP protocol. This serves as a medium of data communication between client and server. HTTP standard methods are used to access resources in RESTful web service architecture.",
+        keyWords: ["RESTful Services ", " HTTP ", " protocol ", " client ", " server "],
+        date: new Date(Date.now())
+    },
+    {
+        topic: "NodeJS",
+        body: "What is package.json and what is it used for?",
+        answer: "This file holds various metadata information about the project. This file is used to give information to npm that allows it to identify the project as well as handle the project's dependencies.",
+        keyWords: ["NodeJS ", " metadata ", " npm ", " dependency "],
+        date: new Date(Date.now())
+    },
+    {
+        topic: "MySQL",
+        body: "What is the default port number of MySQL?",
+        answer: "The default port number for MySQL is 3306.",
+        keyWords: ["MySQL ", " port ", " 3306 "],
+        date: new Date(Date.now())
     }
 
 ]
