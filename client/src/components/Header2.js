@@ -39,13 +39,13 @@ class HeaderTwo extends Component {
                     </span>
                 </NavItem>
 
-                    <Button id="post-btn">
-                        <QuestionModal />
-                    </Button>
+                <Button id="post-btn">
+                    <QuestionModal />
+                </Button>
 
-                    <Button id="logout-btn">
-                        <Logout />
-                    </Button>
+                <Button id="logout-btn">
+                    <Logout />
+                </Button>
 
             </Fragment>
         );
@@ -77,14 +77,13 @@ class HeaderTwo extends Component {
                     <Form>
                         <Typeahead
                             id='input'
-                            name='topic'
+                            name="topic"
                             labelKey='topic'
                             options={options}
                             placeholder='Choose question topic...' />
                         {/* <input type="search" name="topic"
                                 placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" /> */}
                         <BiSearchAlt id="search-icon" />
-
                         <input type="submit" value="Search" />
                     </Form>
                 </Container>
