@@ -6,7 +6,7 @@ router.route("/")
   .get(controller.findAll)
   .post(controller.create, auth);
 
-router.route("/topic")
+router.route("/:topic")
   .get(controller.findByTopic);
 
 router
