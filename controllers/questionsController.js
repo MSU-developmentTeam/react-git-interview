@@ -2,11 +2,11 @@ const db = require("../models/");
 
 module.exports = {
   findAll: function (req, res) {
-    db.Question.find({}).sort({ date: -1}).then((dbModel) => res.json(dbModel)).catch(err => res.status(400).json(err));
+    db.Question.find({}).sort({ createdAt: -1 }).then((dbModel) => res.json(dbModel)).catch(err => res.status(400).json(err));
   },
 
   findByTopic: function (req, res) {
-    db.Question.findByTopic(req.params.topic).then((dbModel) =>
+    db.Question.findByTopic({ topic: req.params.topic }, req.body).then((dbModel) =>
       res.json(dbModel)
     );
   },
