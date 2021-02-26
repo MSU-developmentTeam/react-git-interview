@@ -1,10 +1,10 @@
-# Git.Interview
+# Git.Interview 2.0
 
 ## Description
 ```
-GIT.Interview is a web-application that helps developers prepare for interview questions. 
-The user can search topic of interest, create an account in our website and post new questions and answers. 
-This is an application that utilizes Passport authentication, Express and Sequelize. 
+GIT.Interview is a MERN Stack web-application that helps developers prepare for interview questions. 
+The user can search topics of interest, create an account in our website and post new questions and answers. 
+This application utilizes Redux, JWT authentication, Express and Mongoose. 
 ```
 ## Table of Content
  1. [Usage](#usage)
@@ -25,23 +25,27 @@ As a user, I want to be able to vote on which solution is most helpful.
 
 ```
 ## Technology
-   This application was built with:
+   This application was built with multiple technologies and dependencies including:
    * React
+   * React-Redux
+   * Axios
+   * Redux-Thunk
    * JavaScript
    * Node.js
    * Express
-   * Handlebars
-   * Sequelize
-   * MySQL
+   * MongoDB
+   * Mongoose 
    * Heroku
+   * Postman
    * HTML
+   * Reactstrap
    * Bootstrap 
    * Color Adobe
    * Hatchful
-   * email-validator
-   * Passport Authentication 
+   * JWT Authentication 
    * eslint
    * bcryptjs
+   * Typeahead
 
 ## Installation
    * Make sure you have node installed in your machine and have cloned this repo.
@@ -51,7 +55,7 @@ As a user, I want to be able to vote on which solution is most helpful.
 
 ## Links
    * Deployed Link: https://git-interview21.herokuapp.com/
-   * Repo Link:     https://github.com/MSU-developmentTeam/Git.Interview
+   * Repo Link:     https://github.com/MSU-developmentTeam/react-git-interview
 
 ## Image
 ![Git.Interview](/public/assets/Images/Screenshots/main-page.png)
