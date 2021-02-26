@@ -1,4 +1,0 @@
-{
- "mongoURI" : "Your Mongo URI here",
- "jwtSecret" : "Your JWT secret here"
-}
