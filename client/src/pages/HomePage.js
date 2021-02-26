@@ -1,8 +1,8 @@
 import React from 'react';
 //import Header from '../components/Header';
-import HeaderTwo from '../components/Header2';
+import Header from '../components/Header';
 //import QuestionCard from '../components/QuestionCard';
-import QuestionCardTwo from '../components/QuestionCard2';
+import QuestionCard from '../components/QuestionCard';
 import Footer from "../components/Footer";
 import { connect } from 'react-redux'
 
@@ -10,9 +10,9 @@ export const HomePage = (props) => {
     return (
         <div>
             {/* <Header /> */}
-            <HeaderTwo />
+            <Header />
             {/* <QuestionCard /> */}
-            <QuestionCardTwo />
+            <QuestionCard />
             <Footer />
         </div>
     )
