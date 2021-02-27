@@ -9,6 +9,7 @@ body {
   background-color: #0e2f56;
   color: #ccd3d9;
   font-family: "Audiowide", cursive;
+  margin-bottom: 5px;
 }
 
 h3 {
@@ -18,10 +19,14 @@ h3 {
 
 img {
   margin: auto;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   text-align: center;
   display: block;
+}
+
+#navItem {
+  font-size: 30px;
 }
 
 #search-icon {
@@ -291,4 +296,19 @@ a {
 .fade-exit-active {
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
+}
+
+#Hero {
+  margin-top: 5px;
+  text-align: center;
+  display: block;
+  background-color: #C2E0F2;
+}
+
+#heroImage {
+  background-size: 100%;
+  width: 771px;
+  height: 280px;
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -3px 5px 9px 1px rgba(118,224,255,0); 
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -3px 5px 9px 1px rgba(118,224,255,0);
 }
