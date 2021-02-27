@@ -102,7 +102,7 @@ class LoginModal extends Component {
   }
 }
 const mapStateToProps = state => ({
-  // isAuthenticated: state.auth.isAuthenticated,
+  isAuthenticated: state.user.isAuthenticated,
   error: state.error
 });
 export default connect(

@@ -99,7 +99,7 @@ export const tokenConfig = getState => {
     const token = getState().token;
 
     //Headers
-    const config = {
+    let config = {
         headers: {
             "Content-type": "application/json"
         }
