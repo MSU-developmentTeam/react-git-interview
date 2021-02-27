@@ -49,11 +49,6 @@ class Header extends Component {
 
         const authLinks = (
             <Fragment>
-                <NavItem>
-                    <span className='navbar-text mr-3'>
-                        <strong>{user ? `Welcome ${user.username}` : ''}</strong>
-                    </span>
-                </NavItem>
 
                 <Button id="post-btn">
                     <QuestionModal />
@@ -63,6 +58,11 @@ class Header extends Component {
                     <Logout />
                 </Button>
 
+                <NavItem id="navItem">
+                    <span className='navbar-text mr-3'>
+                        <strong>{user ? `Welcome ${user.username}` : ''}</strong>
+                    </span>
+                </NavItem>
             </Fragment>
         );
 
