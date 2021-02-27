@@ -44,10 +44,11 @@ export const setQuestionsLoading = () => {
 
 export const searchingQuestion = topic => (dispatch, getState) => {
     axios.get(`/api/questions/${topic}`, tokenConfig(getState)).then(res => {
-        return {
+        console.log(res)
+        dispatch({
             type: SEARCH_QUESTIONS,
             payload: topic
-        }
+        })
     }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 }
 
