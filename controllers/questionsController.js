@@ -6,9 +6,12 @@ module.exports = {
   },
 
   findByTopic: function (req, res) {
-    db.Question.findByTopic({ topic: req.params.topic }, req.body).then((dbModel) =>
+    db.Question.find({ topic: req.params.topic }).then((dbModel) => {
+      console.log('This is the request' + req);
+      console.log('-------------------------')
+      console.log('This is the request' + res);
       res.json(dbModel)
-    );
+    }).catch(err => console.log('Backend Catch Statement' + err));
   },
 
   findById: function (req, res) {
