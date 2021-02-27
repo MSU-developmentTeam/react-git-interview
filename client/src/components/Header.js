@@ -9,23 +9,40 @@ import QuestionModal from './questionModal';
 import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../images/linkedin_profile_image.png';
-import { Typeahead } from 'react-bootstrap-typeahead';
-import options from '../data';
+// import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+import { searchingQuestion, getQuestions } from '../actions/questionActions'
+import questionsReducer from '../reducers/questionsReducer';
+// import options from '../data';
 
 
 class Header extends Component {
     state = {
-        isOpen: false
+        isOpen: false,
+        topic: ""
     }
 
     static propTypes = {
-        user: PropTypes.object.isRequired
+        user: PropTypes.object.isRequired,
+        //getQuestions: PropTypes.func.isRequired,
+        searchingQuestion: PropTypes.func.isRequired
     }
 
     toggle = () => {
         this.setState({
             isOpen: !this.state.isOpen
         })
+    }
+
+    onChange = e => {
+        //console.log(this.state)
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    onClick = e => {
+        e.preventDefault();
+        const { topic } = this.state;
+        // console.log(topic)
+        this.props.searchingQuestion(topic);
     }
 
     render() {
@@ -75,17 +92,18 @@ class Header extends Component {
                 </Container>
                 <Container>
                     <Form>
-                        <Typeahead
+                        {/* <AsyncTypeahead
                             type='search'
                             id='input'
-                            name="topic"
+                            name="query"
                             labelKey='topic'
+                            onSearch={this.onSearch()}
                             options={options}
-                            placeholder='Choose question topic...' />
-                        {/* <input type="search" name="topic"
-                                placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" /> */}
+                            placeholder='Choose question topic...' /> */}
+                        <input type="search" name="topic"
+                                placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" onChange={this.onChange} />
                         <BiSearchAlt id="search-icon" />
-                        <input type="submit" value="Search" />
+                        <input type="submit" value="Search" onClick={this.onClick} />
                     </Form>
                 </Container>
             </Jumbotron>
@@ -94,7 +112,8 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user
+    user: state.user,
+    topic: state.topic
 })
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, { searchingQuestion })(Header);
