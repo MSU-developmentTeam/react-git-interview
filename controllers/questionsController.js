@@ -6,10 +6,10 @@ module.exports = {
   },
 
   findByTopic: function (req, res) {
-    db.Question.find({ topic: req.params.topic }).then((dbModel) => {
+    db.Question.find({ topic: req.params.topic }, console.log(req.params.topic)).then((dbModel) => {
       console.log('This is the request' + req);
       console.log('-------------------------')
-      console.log('This is the request' + res);
+      console.log('This is the response' + res);
       res.json(dbModel)
     }).catch(err => console.log('Backend Catch Statement' + err));
   },
