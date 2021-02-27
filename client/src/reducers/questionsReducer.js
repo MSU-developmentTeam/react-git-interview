@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
         case SEARCH_QUESTIONS:
             return {
                 ...state,
-                questions: state.questions.filter(question => question.topic == action.payload)
+                questions: state.questions.filter(question => question.topic.toLowerCase().replace(/\s/g, '') === action.payload.toLowerCase())
             }
         default:
             return state

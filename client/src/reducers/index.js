@@ -7,4 +7,4 @@ export default combineReducers({
     question: questionReducer,
     error: errorReducer,
     user: userReducer
-})
+});
