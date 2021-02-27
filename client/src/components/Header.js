@@ -10,8 +10,7 @@ import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../images/linkedin_profile_image.png';
 // import { AsyncTypeahead } from 'react-bootstrap-typeahead';
-import { searchingQuestion, getQuestions } from '../actions/questionActions'
-import questionsReducer from '../reducers/questionsReducer';
+import { searchingQuestion /*, getQuestions*/ } from '../actions/questionActions'
 // import options from '../data';
 
 
@@ -95,9 +94,9 @@ class Header extends Component {
                         {/* <AsyncTypeahead
                             type='search'
                             id='input'
-                            name="query"
+                            name="topic"
                             labelKey='topic'
-                            onSearch={this.onSearch()}
+                            //onChange={this.onChange()}
                             options={options}
                             placeholder='Choose question topic...' /> */}
                         <input type="search" name="topic"
