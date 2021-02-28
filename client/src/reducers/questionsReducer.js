@@ -33,11 +33,11 @@ export default function (state = initialState, action) {
                 ...state,
                 questions: state.questions.filter(question => question.topic.toLowerCase().replace(/\s/g, '') === action.payload.toLowerCase())
             }
-        // case ANSWER_QUESTION:
-        //     return {
-        //         ...state,
-        //         questions: 
-        //     }
+        case ANSWER_QUESTION:
+            return {
+                ...state,
+                questions: [action.payload, ...state.questions]
+            }
         default:
             return state
     }
