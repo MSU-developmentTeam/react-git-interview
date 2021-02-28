@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { NavItem, Jumbotron, Container, Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
-import RegisterModal from './auth/registerModal';
-import LoginModal from './auth/loginModal';
+import RegisterModal from './auth/RegisterModal';
+import LoginModal from './auth/LoginModal';
 import Logout from './auth/logout';
-import QuestionModal from './questionModal';
+import QuestionModal from './QuestionModal';
 import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../images/linkedin_profile_image.png';
@@ -49,15 +49,8 @@ class Header extends Component {
 
         const authLinks = (
             <Fragment>
-
-                <Button id="post-btn">
-                    <QuestionModal />
-                </Button>
-
-                <Button id="logout-btn">
-                    <Logout />
-                </Button>
-
+                <QuestionModal />
+                <Logout />
                 <NavItem id="navItem">
                     <span className='navbar-text mr-3'>
                         <strong>{user ? `Welcome ${user.username}` : ''}</strong>
