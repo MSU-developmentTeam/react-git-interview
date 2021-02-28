@@ -1,4 +1,4 @@
-import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING, SEARCH_QUESTIONS } from '../actions/types';
+import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING, SEARCH_QUESTIONS, ANSWER_QUESTION } from '../actions/types';
 const initialState = {
     questions: [],
     loading: false
@@ -33,6 +33,11 @@ export default function (state = initialState, action) {
                 ...state,
                 questions: state.questions.filter(question => question.topic.toLowerCase().replace(/\s/g, '') === action.payload.toLowerCase())
             }
+        // case ANSWER_QUESTION:
+        //     return {
+        //         ...state,
+        //         questions: 
+        //     }
         default:
             return state
     }
