@@ -46,7 +46,7 @@ module.exports = {
   },
 
   update: function (req, res) {
-    db.Question.findById({ _id: req.params.id }, req.body).then((dbModel) =>
+    db.Question.findByIdAndUpdate({ _id: req.params.id }, req.body).then((dbModel) =>
       res.json(dbModel)
     );
   },
