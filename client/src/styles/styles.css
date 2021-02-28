@@ -10,6 +10,7 @@ body {
   color: #ccd3d9;
   font-family: "Audiowide", cursive;
   margin-bottom: 5px;
+  height: 100vh;
 }
 
 h3 {
@@ -27,6 +28,7 @@ img {
 
 #navItem {
   font-size: 30px;
+  margin-left: 18%;
 }
 
 #search-icon {
@@ -261,6 +263,7 @@ a {
 
 #linkedIn {
   font-size: 20px;
+  color: #a4b3bf;
 }
 
 .fa-search {
@@ -303,12 +306,52 @@ a {
   text-align: center;
   display: block;
   background-color: #C2E0F2;
+  height: 100vh;
+  color: #0e2f56;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-#heroImage {
+#hero-image {
   background-size: 100%;
   width: 771px;
   height: 280px;
-  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -3px 5px 9px 1px rgba(118,224,255,0); 
-  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -3px 5px 9px 1px rgba(118,224,255,0);
+  -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -3px 5px 9px 1px rgba(118, 224, 255, 0);
+  box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, -3px 5px 9px 1px rgba(118, 224, 255, 0);
+}
+
+#hero-text {
+  margin-top: 50px;
+}
+
+#main-word {
+  font-weight: 900;
+  font-size: 42px;
+}
+
+#go-top {
+  font-size: 32px;
+}
+
+.icon-up-open {
+  color: #a4b3bf;
+}
+
+#answer-btn {
+  float: right;
+  background-color: #a4b3bf;
+  color: #0f3759;
+  outline-color: #0f3759;
+  margin: 1px;
+}
+
+#delete-btn {
+  float: right;
+  background-color: #a4b3bf;
+  color: #0f3759;
+  outline-color: #0f3759;
+  margin: 1px;
+}
+
+#keywords-text{
+  text-align: left;
 }
