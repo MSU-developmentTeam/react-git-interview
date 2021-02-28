@@ -91,6 +91,7 @@ class Header extends Component {
                 </Container>
                 <Container>
                     <Form>
+                        <BiSearchAlt id="search-icon" />
                         {/* <AsyncTypeahead
                             type='search'
                             id='input'
@@ -100,8 +101,7 @@ class Header extends Component {
                             options={options}
                             placeholder='Choose question topic...' /> */}
                         <input type="search" name="topic"
-                                placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" onChange={this.onChange} />
-                        <BiSearchAlt id="search-icon" />
+                            placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" onChange={this.onChange} />
                         <input type="submit" value="Search" onClick={this.onClick} />
                     </Form>
                 </Container>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { getQuestions, deleteQuestion } from '../actions/questionActions';
@@ -43,7 +43,9 @@ class QuestionTwo extends Component {
                                 </Card.Text>
                                 <Card.Text>
                                     <RiQuestionAnswerFill /> {answer}</Card.Text>
-                                <Card.Footer>{keyWords}</Card.Footer>
+                                    <Button id="answer-btn">Answer</Button>
+                                    <Button id="delete-btn">Delete</Button>
+                                <Card.Footer id="keywords-text"># {keyWords}</Card.Footer>
                             </Card.Body>
                         </Card>
                     ))}
