@@ -1,10 +1,9 @@
-import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING, SEARCH_QUESTIONS } from './types';
+import { GET_QUESTIONS, ADD_QUESTION, DELETE_QUESTION, QUESTIONS_LOADING, SEARCH_QUESTIONS, ANSWER_QUESTION } from './types';
 import { tokenConfig } from './userActions';
 import { returnErrors } from './errorActions';
 import axios from 'axios';
 
 export const getQuestions = () => dispatch => {
-
     dispatch(setQuestionsLoading());
     axios.get('/api/questions')
         .then(res => {
@@ -51,6 +50,8 @@ export const searchingQuestion = topic => (dispatch, getState) => {
         })
     }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 }
+
+//export const answeQuestion
 
 //TODO
 //export function for all question categories from DB
