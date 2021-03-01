@@ -29,10 +29,10 @@ class QuestionTwo extends Component {
         this.props.deleteQuestion(id)
     }
 
-    onAnswerClick = e => {
-        console.log(e)
-        //this.props.answerQuestion(id);
-    }
+    // onAnswerClick = e => {
+    //     console.log(e)
+    //     //this.props.answerQuestion(id);
+    // }
 
     render() {
         const { questions } = this.props.question;

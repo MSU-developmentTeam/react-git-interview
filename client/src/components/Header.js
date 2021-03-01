@@ -9,9 +9,7 @@ import QuestionModal from './QuestionModal';
 import '../styles/styles.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import Logo from '../images/linkedin_profile_image.png';
-// import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 import { searchingQuestion /*, getQuestions*/ } from '../actions/questionActions'
-// import options from '../data';
 
 
 class Header extends Component {
@@ -33,14 +31,12 @@ class Header extends Component {
     }
 
     onChange = e => {
-        //console.log(this.state)
         this.setState({ [e.target.name]: e.target.value });
     }
 
     onClick = e => {
         e.preventDefault();
         const { topic } = this.state;
-        // console.log(topic)
         this.props.searchingQuestion(topic);
     }
 
@@ -85,14 +81,6 @@ class Header extends Component {
                 <Container>
                     <Form>
                         <BiSearchAlt id="search-icon" />
-                        {/* <AsyncTypeahead
-                            type='search'
-                            id='input'
-                            name="topic"
-                            labelKey='topic'
-                            //onChange={this.onChange()}
-                            options={options}
-                            placeholder='Choose question topic...' /> */}
                         <input type="search" name="topic"
                             placeholder="JavaScript, HTML, CSS, Node, MySQL, Sequelize or Restful Services" onChange={this.onChange} />
                         <input type="submit" value="Search" onClick={this.onClick} />
