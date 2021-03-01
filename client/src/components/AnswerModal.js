@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { answerQuestion } from '../actions/questionActions';
 import "../styles/styles.css";
+import { BsFillQuestionCircleFill } from 'react-icons/bs';
 
 class AnswerModal extends Component {
     state = {
@@ -49,10 +50,9 @@ class AnswerModal extends Component {
     render() {
         return (
             <div>
-                <Button id="answer-btn" onClick={this.toggle} href="#">Answer</Button>
+                <Button id="answer-btn" onClick={this.toggle} href="#"> Answer</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    {/* Add answer react icon */}
-                    <ModalHeader toggle={this.toggle}>Answer</ModalHeader>
+                    <ModalHeader toggle={this.toggle}><BsFillQuestionCircleFill />  Answer</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
