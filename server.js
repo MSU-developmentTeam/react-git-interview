@@ -12,7 +12,6 @@ const MongoStore = require("connect-mongo")(session);
 
 const path = require("path");
 
-// dotenv.config({path: './config/config.env'})
 const db = config.get("mongoURI");
 
 mongoose.connect(process.env.MONGODB_URI || db );
@@ -22,7 +21,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-// Serve up static assets (usually on heroku)
+// Serve up static assets for HEROKU
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 
@@ -33,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
-//const db = require("./models");
+
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
@@ -52,13 +51,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Requiring our routes
-// require("./routes/passport-html-routes.js")(app);
-// require("./routes/passport-api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
-
-// require("./routes/questions-api-routes")(app);
-// require("./routes/Authentication/auth-routes")(app);
 
 app.use('/api/users', require('./routes/Authentication/user-routes'))
 app.use('/api/questions', require('./routes/questions-api-routes')) 
