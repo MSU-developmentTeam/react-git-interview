@@ -51,15 +51,13 @@ export const searchingQuestion = topic => (dispatch, getState) => {
     }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 }
 
-export const answerQuestion = id => (dispatch, getState) => {
+
+export const answerQuestion = (id) => (dispatch, getState) => {
     axios.put(`/api/questions/${id}`, tokenConfig(getState)).then(res => {
-        console.log(res)
+        console.log("=============This is ID " + id)
         dispatch({
             type: ANSWER_QUESTION,
-            payload: res.data
+            payload: id
         })
     }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
 };
-
-//TODO
-//export function for all question categories from DB
