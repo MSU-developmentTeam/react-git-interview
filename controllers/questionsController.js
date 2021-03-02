@@ -35,12 +35,12 @@ module.exports = {
   },
 
   update: function (req, res) {
-    console.log("THis is request" + req);
     db.Question.findOneAndUpdate({ _id: req.params.id }, {
       answer: req.body.answer 
-    },console.log(req.params.id + " " + req.body.answer), {new: true})
-    .then((dbModel) =>
-      res.json(dbModel)
-    ).catch(err => res.status(422).json(err));
+    }, {new: true})
+      .then((dbModel) => {
+        console.log("DbModel Answer = " + dbModel.answer);
+        res.status(200).json(dbModel)
+      }).catch(err => res.status(422).json(err));
   },
 };

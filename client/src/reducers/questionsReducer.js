@@ -34,20 +34,20 @@ export default function (state = initialState, action) {
                 questions: state.questions.filter(question => question.topic.toLowerCase().replace(/\s/g, '') === action.payload.toLowerCase())
             }
         case ANSWER_QUESTION:
-            // return {
-            //     ...state,
-            //     questions: [action.payload, ...state.questions]
-            // }
-            return state.map((question) => {
-                if(question.id === action.id){
-                    return{
-                        ...question,
-                        ...action.payload
-                    };
-                }else{
-                    return question;
-                }
-            });
+            return {
+                ...state,
+                questions: state.questions.filter(question => question._id === action.payload)
+            }
+            // return state.map((question) => {
+            //     if(question.id === action.id){
+            //         return{
+            //             ...question,
+            //             ...action.payload
+            //         };
+            //     }else{
+            //         return question;
+            //     }
+            // });
         default:
             return state
     }

@@ -52,12 +52,13 @@ export const searchingQuestion = topic => (dispatch, getState) => {
 }
 
 
-export const answerQuestion = (id) => (dispatch, getState) => {
-    axios.put(`/api/questions/${id}`, tokenConfig(getState)).then(res => {
+export const answerQuestion = (answer, id) => (dispatch, getState) => {
+    console.log(id)
+    axios.put(`/api/questions/${id}`, {answer: answer}, tokenConfig(getState)).then(res => {
         console.log("=============This is ID " + id)
         dispatch({
             type: ANSWER_QUESTION,
             payload: id
         })
-    }).catch(err => dispatch(returnErrors(err.res.data, err.res.status)));
+    }).catch(err => console.log(err));
 };
