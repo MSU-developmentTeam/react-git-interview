@@ -50,7 +50,7 @@ class QuestionTwo extends Component {
                                 </Card.Text>
                                 <Card.Text>
                                     <RiQuestionAnswerFill /> {answer}</Card.Text>
-                                    <AnswerModal />
+                                    <AnswerModal questionId={_id} />
                                 <Button id="delete-btn">Delete</Button>
                                 <Card.Footer id="keywords-text"># {keyWords}</Card.Footer>
                             </Card.Body>
