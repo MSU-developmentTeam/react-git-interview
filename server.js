@@ -3,10 +3,6 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const config = require('config');
 // const bodyParser = require("body-parser");
-// const dotenv = require("dotenv");
-// const connectDB = require("./config/db");
-// const methodOverride = require("method-override");
-const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
@@ -48,8 +44,7 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 app.use('/api/users', require('./routes/Authentication/user-routes'))
