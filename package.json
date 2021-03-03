@@ -4,6 +4,7 @@
   "description": "* Must use a Node and Express server",
   "main": "server.js",
   "scripts": {
+    "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
@@ -13,7 +14,7 @@
     "seed": "node scripts/seedData.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --install --prefix client && npm run  build --prefix client"
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
