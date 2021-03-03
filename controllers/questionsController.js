@@ -27,17 +27,6 @@ module.exports = {
       keyWords: req.body.keyWords
     }).then((dbModel) => res.json(dbModel)).catch(err => res.status(400).json(err));
   },
-  // create: function (req, res) {
-  //   db.Question.create({
-  //     topic: req.body.topic,
-  //     body: req.body.body,
-  //     answer: req.body.answer,
-  //     keyWords: req.body.keyWords
-  //   }).then(({ _id }) => db.User.findOneAndUpdate({}, { $push: { questions: _id } }))
-  //   .then(dbModel => {
-  //     res.json(dbModel);
-  //   }).catch(err => res.status(422).json(err));
-  // },
 
   remove: function (req, res) {
     db.Question.findById({ _id: req.params.id })
@@ -46,8 +35,12 @@ module.exports = {
   },
 
   update: function (req, res) {
-    db.Question.findByIdAndUpdate({ _id: req.params.id }, req.body).then((dbModel) =>
-      res.json(dbModel)
-    );
+    db.Question.findOneAndUpdate({ _id: req.params.id }, {
+      answer: req.body.answer 
+    }, {new: true})
+      .then((dbModel) => {
+        console.log("DbModel Answer = " + dbModel.answer);
+        res.status(200).json(dbModel)
+      }).catch(err => res.status(422).json(err));
   },
 };

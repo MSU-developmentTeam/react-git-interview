@@ -3,9 +3,6 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const config = require('config');
 // const bodyParser = require("body-parser");
-// const dotenv = require("dotenv");
-// const connectDB = require("./config/db");
-// const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 

@@ -12,7 +12,7 @@ router.route("/:topic")
 router
   .route("/:id")
   .get(controller.findById, auth)
-  .put(controller.update, auth)
+  .put(controller.update)
   .delete(controller.remove, auth);
 
 module.exports = router;

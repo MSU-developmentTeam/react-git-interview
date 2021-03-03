@@ -40,12 +40,15 @@ class AnswerModal extends Component {
 
     onSubmit = e => {
         e.preventDefault();
+        
         const { answer } = this.state;
-        const newAnswer = {
-            answer
-        };
+        let id = this.props.questionId;
+        // const newAnswer = {
+        //     answer,
+        //     id
+        // };
 
-        this.props.answerQuestion(newAnswer);
+        this.props.answerQuestion(answer, id);
     };
     render() {
         return (
