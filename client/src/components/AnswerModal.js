@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { answerQuestion } from '../actions/questionActions';
+import { answerQuestion, getQuestions } from '../actions/questionActions';
 import "../styles/styles.css";
 import { BsFillQuestionCircleFill } from 'react-icons/bs';
+
 
 class AnswerModal extends Component {
     state = {
@@ -14,7 +15,8 @@ class AnswerModal extends Component {
 
     static propTypes = {
         isAuthenticated: PropTypes.bool,
-        answerQuestion: PropTypes.func.isRequired
+        answerQuestion: PropTypes.func.isRequired,
+        getQuestions: PropTypes.func.isRequired
     };
 
 
@@ -43,12 +45,9 @@ class AnswerModal extends Component {
         
         const { answer } = this.state;
         let id = this.props.questionId;
-        // const newAnswer = {
-        //     answer,
-        //     id
-        // };
-
+        this.toggle();
         this.props.answerQuestion(answer, id);
+        this.props.getQuestions();
     };
     render() {
         return (
@@ -83,5 +82,5 @@ const mapStateToProps = state => ({
     isAuthenticated: state.user.isAuthenticated,
 
 });
-export default connect(mapStateToProps,{ answerQuestion })(AnswerModal);
+export default connect(mapStateToProps,{ answerQuestion, getQuestions })(AnswerModal);
 
