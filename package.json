@@ -12,6 +12,7 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "seed": "node scripts/seedData.js",
+    "install": "cd client && npm install",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "npm run build"
