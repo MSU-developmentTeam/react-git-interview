@@ -25,6 +25,9 @@
   "bugs": {
     "url": "https://github.com/MSU-developmentTeam/Git.Interview/issues"
   },
+  "engines": {
+    "node": "14.15.0"
+  },
   "homepage": "https://github.com/MSU-developmentTeam/Git.Interview#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
