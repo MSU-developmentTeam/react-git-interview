@@ -21,7 +21,6 @@ This application utilizes Redux, JWT authentication, Express and Mongoose.
 As a developer
 I want to prep for future interviews,
 By having quick access to popular interview questions, along with different solutions.
-As a user, I want to be able to vote on which solution is most helpful.
 
 ```
 ## Technology
@@ -45,16 +44,17 @@ As a user, I want to be able to vote on which solution is most helpful.
    * JWT Authentication 
    * eslint
    * bcryptjs
-   * Typeahead
+   * config
 
 ## Installation
    * Make sure you have node installed in your machine and have cloned this repo.
    * Run : ```npm install``` in order to install all dependencies 
-   * Run : ```node server.js``` and the application will start 
-   * Navigate to the localhost port: http://localhost:8080 in the browser.
+   * Navigate to client folder and run: ```npm install``` in order to install all dependencies.
+   * Run : ```npm run dev``` and the application will start 
+   * Navigate to the localhost port: http://localhost:3000 in the browser.
 
 ## Links
-   * Deployed Link: https://git-interview21.herokuapp.com/
+   * Deployed Link: 
    * Repo Link:     https://github.com/MSU-developmentTeam/react-git-interview
 
 ## Image
@@ -74,7 +74,7 @@ As a user, I want to be able to vote on which solution is most helpful.
 ## Questions
     * If you have any questions, email any memmber of the development team at:
     Enxhi   enxhi_salaj@yahoo.com
-    Pierce  roggpierce@gmail.com
+    Pierce  ptrogg1992@gmail.com
     Marlee  marlee.eyre@gmail.com
     Sam     sambishop3015@hotmail.com
     Alex    tatum_alex@gmail.com
