@@ -51,7 +51,7 @@ class QuestionTwo extends Component {
                                 <Card.Text>
                                     <RiQuestionAnswerFill /> {answer}</Card.Text>
                                     <AnswerModal questionId={_id} />
-                                <Button id="delete-btn">Delete</Button>
+                                <Button id="delete-btn" onClick={() => this.onDeleteClick(_id)}>Delete</Button>
                                 <Card.Footer id="keywords-text"># {keyWords}</Card.Footer>
                             </Card.Body>
                         </Card>
