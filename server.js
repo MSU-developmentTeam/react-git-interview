@@ -45,8 +45,6 @@ app.use(
   })
 );
 
-
-
 app.use('/api/users', require('./routes/Authentication/user-routes'))
 app.use('/api/questions', require('./routes/questions-api-routes')) 
 app.use('/api/auth', require('./routes/Authentication/auth-routes'))
