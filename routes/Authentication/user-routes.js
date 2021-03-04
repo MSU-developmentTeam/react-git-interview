@@ -1,54 +1,21 @@
+const bcrypt = require('bcryptjs');
+const _ = require('lodash');
+const {User} = require('../../models/user')
 const express = require("express");
 const router = express.Router();
-const config = require("config");
-const jwt = require("jsonwebtoken");
-const User = require("../../models/user");
-const bcrypt = require('bcryptjs')
+
 // @route POST api/users
 // @desc Register an user
 // @access Public
-router.post("/", (req, res) => {
-  const { username, email, password } = req.body;
-  // Simple Validation
-  if (!username || !email || !password) {
-    return res.status(400).json({ msg: "Please enter all fields" });
-  }
-  // Check for existing user
-  User.findOne({ username, email }).then((user) => {
-    if (user) return res.status(400).json({ msg: "User already exists" });
-    const newUser = new User({
-      username,
-      email,
-      password,
-    });
-    // Create Salt and Hash
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        newUser.password = hash;
-        newUser.save().then((user) => {
-          // Signing the token
-          jwt.sign(
-            // payload
-            { id: user.id },
-            //jwt secret
-            config.get("jwtSecret"),
-            // Expires in two hours
-            { expiresIn: 7200 },
-            (err, token) => {
-              if (err) throw err;
-              res.json({
-                token,
-                user: {
-                  id: user.id,
-                  username: user.username,
-                  email: user.email,
-                },
-              });
-            }
-          );
-        });
-      });
-    });
-  });
+router.post("/", async (req, res) => {
+  let user = await User.findOne({ username: req.body.username });
+  if (user) return res.status(400).send('User already registered');
+
+  user = new User(_.pick(req.body, ['username', 'email', 'password']));
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(user.password, salt);
+  await user.save();
+  const token = user.generateAuthToken();
+  res.header('x-auth-token', token).send(_.pick(user, ['-id', 'username', 'email']));
 });
 module.exports = router;
