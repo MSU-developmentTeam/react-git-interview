@@ -58,7 +58,9 @@ By having quick access to popular interview questions, along with different solu
    * Repo Link:     https://github.com/MSU-developmentTeam/react-git-interview
 
 ## Image
-![Git.Interview](/public/assets/Images/Screenshots/main-page.png)
+![Git.Interview](/client/public/screenshots/header-sc.png)
+
+![Git.Interview](/client/public/screenshots/informative-section-sc.png)
 
 ## Contribution
    * Enxhi Salaj
